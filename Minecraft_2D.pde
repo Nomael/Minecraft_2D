@@ -26,11 +26,10 @@ void draw() {
 
   if (menu.menunav == 2) {
     image(gamebg, 0, 0);
-    for (int i=0; i < width; i+= block.bsize) {
-      block.display(0+i, height - block.bsize);
-    }
+    wgen.bgen();
     player.grid();
     player.grid2();
+    player.blocksel();
     player.display();
     fps();
     menu.pause();

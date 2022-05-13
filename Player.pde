@@ -112,15 +112,16 @@ class Player {
     }
   }
 
-  //void blocksel() {
-  //  if (mouseX > (px-ggr*3-20)-(ggr*7) && mouseX < (px-ggr*3-20)+(ggr*7) && mouseY > (py-ggr*2)-(ggr*6) && mouseY < (py-ggr*2)+(ggr*6)) {
-  //    //for (float x= 0; x < 7; x++) {
-  //    //  for (float y= 0; y < 6; y++) {
-  //    //  }
-  //    //}
-  //    image(block.block, width/2, height/2);
-  //  }
-  //}
+  void blocksel() {
+    if (mouseX > (px-ggr*3-20) && mouseX < (px-ggr*3-20)+(ggr*7) && mouseY > (py-ggr*2) && mouseY < (py-ggr*2)+(ggr*6)) {
+      //for (float x= 0; x < 7; x++) {
+      //  for (float y= 0; y < 6; y++) {
+      //  }
+      //}
+      image(block.block, width/2, height/2);
+      println("Hallo");
+    }
+  }
 
   void gravitation() {
     if (overblock == false && menu.pause == false && gamemode != 1) {
