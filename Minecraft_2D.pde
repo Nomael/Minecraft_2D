@@ -2,6 +2,7 @@ Block block; //<>//
 Menu menu;
 Player player;
 Inventory mainI;
+Worldgen wgen;
 PImage gamebg;
 PImage mainbg;
 String TITLE = "2D Minecraft from Noel and Marlon";
@@ -11,7 +12,8 @@ void setup() {
   block = new Block("grass");
   menu = new Menu("Mcicon512x512");
   player = new Player(180, height-240, 1, 2, 80); //x-Koordinate, y-Koordinate, Sprintgeschwindigtkeit, Gehen, Sprung
-  mainI = new Inventory(3); //Größe - Hotbar, 
+  mainI = new Inventory(3); //Größe - Hotbar,
+  wgen = new Worldgen(width);
   gamebg = loadImage("/data/images/background.png");
   gamebg.resize(width, height-50);
   mainbg = loadImage("/data/images/mainmenubg.png");
@@ -62,8 +64,7 @@ void keyPressed() {
     }
     if (keyCode == 69 && mainI.inv == false) {
       mainI.inv = true;
-    }
-    else if (keyCode == 69 && mainI.inv == true) {
+    } else if (keyCode == 69 && mainI.inv == true) {
       mainI.inv = false;
     }
     if (keyCode == 68) {
