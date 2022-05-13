@@ -9,7 +9,7 @@ class Menu {
   PImage play_over;
   PImage quit;
   PImage quit_over;
-  int menunav = 2;
+  int menunav = 1;
   boolean pause = false;
   boolean ppressed = false;
 

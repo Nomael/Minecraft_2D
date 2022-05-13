@@ -1,5 +1,4 @@
-Worldgen wgen; //<>//
-Block block;
+Block block; //<>//
 Menu menu;
 Player player;
 Inventory mainI;
@@ -9,7 +8,6 @@ String TITLE = "2D Minecraft from Noel and Marlon";
 
 void setup() {
   size(1800, 900);
-  wgen = new Worldgen(width);
   block = new Block("grass");
   menu = new Menu("Mcicon512x512");
   player = new Player(180, height-240, 1, 2, 80); //x-Koordinate, y-Koordinate, Sprintgeschwindigtkeit, Gehen, Sprung
@@ -28,10 +26,11 @@ void draw() {
 
   if (menu.menunav == 2) {
     image(gamebg, 0, 0);
-    wgen.bgen();
+    for (int i=0; i < width; i+= block.bsize) {
+      block.display(0+i, height - block.bsize);
+    }
     player.grid();
     player.grid2();
-    player.blocksel();
     player.display();
     fps();
     menu.pause();
@@ -57,9 +56,16 @@ void keyPressed() {
     if (keyCode == ESC) {
       key = 0;
       menu.ppressed = true;
+      mainI.inv = false;
     }
     if (keyCode == 65) {
       player.left = true;
+    }
+    if (keyCode == 69 && mainI.inv == false) {
+      mainI.inv = true;
+    }
+    else if (keyCode == 69 && mainI.inv == true) {
+      mainI.inv = false;
     }
     if (keyCode == 68) {
       player.right = true;
@@ -69,7 +75,6 @@ void keyPressed() {
     }
     if (keyCode == 17) {
       player.down = true;
-      player.walk = 1;
     }
     if (keyCode == 16) {
       player.sprint = 2.5;
@@ -111,7 +116,6 @@ void keyReleased() {
     }
     if (keyCode == 17) {
       player.down = false;
-      player.walk = 2;
     }
     if (keyCode == 16) {
       player.sprint = player.walk;
