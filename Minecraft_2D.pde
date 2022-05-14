@@ -11,7 +11,7 @@ void setup() {
   size(1800, 900);
   block = new Block("grass");
   menu = new Menu("Mcicon512x512");
-  player = new Player(180, height-240, 1, 2, 80); //x-Koordinate, y-Koordinate, Sprintgeschwindigtkeit, Gehen, Sprung
+  player = new Player(160, height-240, 1, 2, 80); //x-Koordinate, y-Koordinate, Sprintgeschwindigtkeit, Gehen, Sprung
   mainI = new Inventory(3); //Größe - Hotbar,
   wgen = new Worldgen(width);
   gamebg = loadImage("/data/images/background.png");
