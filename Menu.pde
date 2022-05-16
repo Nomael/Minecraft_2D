@@ -39,6 +39,7 @@ class Menu {
         image(play_over, width/2, height/2-160);
         if (mousePressed) {
           menunav = 2;
+          player.reset();
         }
       } else {
         image(play, width/2, height/2-160);

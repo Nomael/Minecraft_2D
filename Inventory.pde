@@ -39,7 +39,7 @@ class Inventory {
       for (int i=0; i < number; i++) {
         image(invbar, hbx-10, height/2 - i*48);
       }
-      image(invRing,hbx-28, height/2- number-2 * 59);
+      image(invRing, hbx-28, height/2- number-2 * 59);
     }
   }
 }

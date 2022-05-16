@@ -105,28 +105,33 @@ class Player {
       }
     }
   }
-void grid2() { // World Grid
-  for (float x= 0; x < 25; x++) {
-    for (float y= 0; y < 15; y++) {
-      noFill();
-      rect(iggr*x-gcen, 20+(iggr*y), iggr, iggr);
+  void grid2() { // World Grid
+    for (float x= 0; x < 25; x++) {
+      for (float y= 0; y < 15; y++) {
+        noFill();
+        rect(iggr*x-gcen, 20+(iggr*y), iggr, iggr);
+      }
     }
   }
-}
 
-void blocksel() {
-  if (mouseX > (px-ggr*3-20) && mouseX < (px-ggr*3-20)+(ggr*7) && mouseY > (py-ggr*2) && mouseY < (py-ggr*2)+(ggr*6) && menu.pause == false && mainI.inv == false) {
-    inGrid = true;
-    image(block.block, width/2, height/2);
-    println("Hallo");
-  } else {
-    inGrid = false;
+  void blocksel() {
+    if (mouseX > (px-ggr*3-20) && mouseX < (px-ggr*3-20)+(ggr*7) && mouseY > (py-ggr*2) && mouseY < (py-ggr*2)+(ggr*6) && menu.pause == false && mainI.inv == false) {
+      inGrid = true;
+      image(block.block, width/2, height/2);
+      println("Hallo");
+    } else {
+      inGrid = false;
+    }
   }
-}
 
-void gravitation() {
-  if (overblock == false && menu.pause == false && gamemode != 1) {
-    py+= down1;
+  void gravitation() {
+    if (overblock == false && menu.pause == false && gamemode != 1) {
+      py+= down1;
+    }
   }
-}
+  void reset() {
+    px = 160;
+    py = height-240;
+    menu.pause = false;
+  }
 }
