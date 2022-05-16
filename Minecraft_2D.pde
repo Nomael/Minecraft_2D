@@ -37,7 +37,6 @@ void draw() {
     player.display();
     fps();
     menu.pause();
-    //menu.pausepressed();
   }
 }
 
