@@ -99,12 +99,15 @@ class Player {
   }
 
   void grid() { // Player Grid
-    for (float x= 0; x < 7; x++) {
-      for (float y= 0; y < 6; y++) {
+    for (int x= 1; x < 7; x++) {
+      for (int y= 1; y < 6; y++) {
+        gx[x] = x;
+        
       }
     }
+    println(gx);
     noFill();
-    rect((px-ggr*3-20)+(ggr*x), (py-ggr*2)+(ggr*y), ggr, ggr);
+    //rect((px-ggr*3-20)+(ggr*x), (py-ggr*2)+(ggr*y), ggr, ggr);
   }
   void grid2() { // World Grid
     for (float x= 0; x < 25; x++) {
