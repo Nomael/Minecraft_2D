@@ -104,7 +104,7 @@ class Player {
       }
     }
     noFill();
-    rect((px-ggr*3-20)+(ggr*x), (py-ggr*2)+(ggr*y), ggr, ggr);
+    //rect((px-ggr*3-20)+(ggr*x), (py-ggr*2)+(ggr*y), ggr, ggr);
   }
   void grid2() { // World Grid
     for (float x= 0; x < 25; x++) {
