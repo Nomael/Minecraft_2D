@@ -50,7 +50,7 @@ void fps() {
 }
 
 void keyPressed() {
-  if (menu.menunav == 2) {
+  if (menu.menunav == 1) {
     if (keyCode == ESC) {
       key = 0;
     }
