@@ -21,7 +21,8 @@ class Player {
   PImage rplayer;
   PImage lplayer;
 
-  int weniger;
+  int gx[] = new int[7];
+  int gy[] = new int[6];
   int ggr = 80;
   int iggr = 80;
   int gcen = 20;
@@ -100,10 +101,10 @@ class Player {
   void grid() { // Player Grid
     for (float x= 0; x < 7; x++) {
       for (float y= 0; y < 6; y++) {
-        noFill();
-        rect((px-ggr*3-20)+(ggr*x), (py-ggr*2)+(ggr*y), ggr, ggr);
       }
     }
+    noFill();
+    rect((px-ggr*3-20)+(ggr*x), (py-ggr*2)+(ggr*y), ggr, ggr);
   }
   void grid2() { // World Grid
     for (float x= 0; x < 25; x++) {
