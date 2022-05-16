@@ -1,4 +1,5 @@
 Block block; //<>//
+Items block_item;
 Menu menu;
 Player player;
 Inventory mainI;
@@ -10,6 +11,7 @@ String TITLE = "2D Minecraft from Noel and Marlon";
 void setup() {
   size(1800, 900);
   block = new Block("grass");
+  block_item = new Items();
   menu = new Menu("Mcicon512x512");
   player = new Player(160, height-240, 1, 2, 80); //x-Koordinate, y-Koordinate, Sprintgeschwindigtkeit, Gehen, Sprung
   mainI = new Inventory(3); //Größe - Hotbar,

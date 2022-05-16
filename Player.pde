@@ -8,7 +8,7 @@ class Player {
   float jump;
   float down1 = 3;
   int pricht = 2;
-  int gamemode = 0;
+  int gamemode = 1;
   boolean up;
   boolean down;
   boolean left;
