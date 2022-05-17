@@ -137,5 +137,11 @@ class Player {
     px = 160;
     py = height-240;
     menu.pause = false;
+    menu.ppressed = false;
+    down = false;
+    up = false;
+    hold = false;
+    right = false;
+    left = false;
   }
 }
