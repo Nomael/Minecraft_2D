@@ -22,6 +22,8 @@ class Player {
 
   int gx[] = new int[7];
   int gy[] = new int[6];
+  int gx2[] = new int[7];
+  int gy2[] = new int[6];
   int gxy = gx.length;
   boolean inGrid[] = new boolean[gxy];
   int ggr = 80;
@@ -106,8 +108,10 @@ class Player {
           if (inGrid[i] == false) {
             gx[x] = (px-ggr*3-20);
             gy[y] = (py-ggr*2);
+            gx2[x] = (px-ggr*3-20)+(ggr*x);
+            gy2[y] = (py-ggr*2)+(ggr*y);
             noFill();
-            if (inGrid[i]) {
+            if (inGrid[i] == false) {
               rect(gx[x]+(ggr*x), gy[y]+(ggr*y), ggr, ggr);
             }
           }
@@ -129,7 +133,7 @@ class Player {
       for (int y= 0; y < 6; y++) {
         for (int i=0; i < gxy; i++) {
 
-          if (mouseX > gx[x] && mouseX < gx[x]+(ggr*x) && mouseY > gy[y] && mouseY < gy[y]+(ggr*y) && menu.pause == false && mainI.inv == false) {
+          if (mouseX > gx[x] && mouseX < gx2[x] && mouseY > gy[y] && mouseY < gy2[y] && menu.pause == false && mainI.inv == false) {
             inGrid[i] = false;
             image(block.block, width/2, height/2);
             println("Hallo");
