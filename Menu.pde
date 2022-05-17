@@ -14,7 +14,7 @@ class Menu {
   boolean ppressed = false;
 
   Menu(String iconname) {
-    changeAppTitle(TITLE);
+    surface.setTitle(TITLE);
     surface.setIcon(loadImage("/data/images/" + iconname + ".png"));
     DFMC = createFont("/data/fonts/Default_Old_MC.ttf", 10);
     //SPMC = loadFont("/data/fonts/Special_MC.ttf");

@@ -1,6 +1,6 @@
 class Player {
-  float px;
-  float py;
+  int px;
+  int py;
   int psizey = 160;
   int psizex = 40;
   float sprint;
@@ -15,7 +15,6 @@ class Player {
   boolean right;
   boolean overblock = false;
   boolean hold = false;
-  boolean inGrid = false;
   PImage rcplayer;
   PImage lcplayer;
   PImage rplayer;
@@ -23,6 +22,8 @@ class Player {
 
   int gx[] = new int[7];
   int gy[] = new int[6];
+  int gxy = gx.length;
+  boolean inGrid[] = new boolean[gxy];
   int ggr = 80;
   int iggr = 80;
   int gcen = 20;
@@ -99,15 +100,20 @@ class Player {
   }
 
   void grid() { // Player Grid
-    for (int x= 1; x < 7; x++) {
-      for (int y= 1; y < 6; y++) {
-        gx[x] = x;
-        
+    for (int x= 0; x < 7; x++) {
+      for (int y= 0; y < 6; y++) {
+        for (int i=0; i < gxy; i++) {
+          if (inGrid[i] == false) {
+            gx[x] = (px-ggr*3-20);
+            gy[y] = (py-ggr*2);
+            noFill();
+            if (inGrid[i]) {
+              rect(gx[x]+(ggr*x), gy[y]+(ggr*y), ggr, ggr);
+            }
+          }
+        }
       }
     }
-    println(gx);
-    noFill();
-    //rect((px-ggr*3-20)+(ggr*x), (py-ggr*2)+(ggr*y), ggr, ggr);
   }
   void grid2() { // World Grid
     for (float x= 0; x < 25; x++) {
@@ -119,12 +125,19 @@ class Player {
   }
 
   void blocksel() {
-    if (mouseX > (px-ggr*3-20) && mouseX < (px-ggr*3-20)+(ggr*7) && mouseY > (py-ggr*2) && mouseY < (py-ggr*2)+(ggr*6) && menu.pause == false && mainI.inv == false) {
-      inGrid = true;
-      image(block.block, width/2, height/2);
-      println("Hallo");
-    } else {
-      inGrid = false;
+    for (int x= 0; x < 7; x++) {
+      for (int y= 0; y < 6; y++) {
+        for (int i=0; i < gxy; i++) {
+
+          if (mouseX > gx[x] && mouseX < gx[x]+(ggr*x) && mouseY > gy[y] && mouseY < gy[y]+(ggr*y) && menu.pause == false && mainI.inv == false) {
+            inGrid[i] = false;
+            image(block.block, width/2, height/2);
+            println("Hallo");
+          } else {
+            inGrid[i] = true;
+          }
+        }
+      }
     }
   }
 
