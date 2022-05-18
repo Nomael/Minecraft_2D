@@ -1,14 +1,11 @@
 class Player {
-  PVector v2;
-  
-  float px;
-  float py;
+  int px;
+  int py;
   int psizey = 160;
   int psizex = 40;
   float sprint;
   float walk;
   float jump;
-  final int GRAVITY = 20;
   float down1 = 3;
   int pricht = 2;
   int gamemode = 0;
@@ -35,12 +32,11 @@ class Player {
 
   Player(int x, int y, float psprint, float pwalk, float pjump) {
     this.px = x;
-    v2 = new PVector(x,GRAVITY);
-    this.py = v2.y;
+    this.py = y;
     this.sprint = psprint;
     this.walk = pwalk;
     this.jump = pjump;
-    
+
 
     lplayer = loadImage("/data/images/steve_left.png");
     lplayer.resize(psizex, psizey);
@@ -82,18 +78,18 @@ class Player {
           py+= jump / 15;
         }
       }
-      //if (pricht == 1) {
-      //  pricht = 3;
-      //}
-      //if (pricht == 3 && down == false) {
-      //  pricht = 1;
-      //}
-      //if (pricht == 2) {
-      //  pricht = 4;
-      //}
-      //if (pricht == 4 && down == false) {
-      //  pricht = 2;
-      //}
+      if (pricht == 1) {
+        pricht = 3;
+      }
+      if (pricht == 3 && down == false) {
+        pricht = 1;
+      }
+      if (pricht == 2) {
+        pricht = 4;
+      }
+      if (pricht == 4 && down == false) {
+        pricht = 2;
+      }
 
       if (up && overblock == true && gamemode == 0 && hold == false) {
         py-= jump;
@@ -105,24 +101,24 @@ class Player {
     }
   }
 
-  //void grid() { // Player Grid
-  //  for (int x= 0; x < 7; x++) {
-  //    for (int y= 0; y < 6; y++) {
-  //      for (int i=0; i < gxy; i++) {
-  //        if (inGrid[i] == false) {
-  //          gx[x] = (px-ggr*3-20);
-  //          gy[y] = (py-ggr*2);
-  //          gx2[x] = (px-ggr*3-20)+(ggr*x);
-  //          gy2[y] = (py-ggr*2)+(ggr*y);
-  //          noFill();
-  //          if (inGrid[i] == false) {
-  //            rect(gx[x]+(ggr*x), gy[y]+(ggr*y), ggr, ggr);
-  //          }
-  //        }
-  //      }
-  //    }
-  //  }
-  //}
+  void grid() { // Player Grid
+    for (int x= 0; x < 7; x++) {
+      for (int y= 0; y < 6; y++) {
+        for (int i=0; i < gxy; i++) {
+          if (inGrid[i] == false) {
+            gx[x] = (px-ggr*3-20);
+            gy[y] = (py-ggr*2);
+            gx2[x] = (px-ggr*3-20)+(ggr*x);
+            gy2[y] = (py-ggr*2)+(ggr*y);
+            noFill();
+            if (inGrid[i] == false) {
+              rect(gx[x]+(ggr*x), gy[y]+(ggr*y), ggr, ggr);
+            }
+          }
+        }
+      }
+    }
+  }
   void grid2() { // World Grid
     for (float x= 0; x < 25; x++) {
       for (float y= 0; y < 15; y++) {
