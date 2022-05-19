@@ -26,7 +26,6 @@ class Menu {
     quit = loadImage("/data/images/quit.png");
     play_over = loadImage("/data/images/play_over.png");
     quit_over = loadImage("/data/images/quit_over.png");
-    
   }
 
   void mainnav() {

@@ -107,9 +107,9 @@ class Player {
     for (float x= 0; x < 25; x++) {
       for (float y= 0; y < 15; y++) {
         for (int i=0; i < gx; i++) {
-          if(inGrid[i] == true){
-          noFill();
-          rect(ggr*x-20, 20+(ggr*y), ggr, ggr);
+          if (inGrid[i] == true) {
+            noFill();
+            rect(ggr*x-20, 20+(ggr*y), ggr, ggr);
           }
         }
       }
