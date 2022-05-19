@@ -19,7 +19,7 @@ class Player {
   PImage lcplayer;
   PImage rplayer;
   PImage lplayer;
-  
+
   int gx = 25;
   int gy = 15;
   boolean inGrid[] = new boolean[gx+gy];
@@ -98,7 +98,7 @@ class Player {
   }
 
   void crosshairs() {
-    if(menu.pause == false){
+    if (menu.pause == false) {
       cursor(CROSS);
     }
   }
@@ -106,8 +106,12 @@ class Player {
   void grid() { // World Grid
     for (float x= 0; x < 25; x++) {
       for (float y= 0; y < 15; y++) {
-        noFill();
-        rect(ggr*x-20, 20+(ggr*y), ggr, ggr);
+        for (int i=0; i < gx; i++) {
+          if(inGrid[i] == true){
+          noFill();
+          rect(ggr*x-20, 20+(ggr*y), ggr, ggr);
+          }
+        }
       }
     }
   }
@@ -116,13 +120,12 @@ class Player {
     for (int x= 0; x < 2; x++) {
       for (int y= 0; y < 2; y++) {
         for (int i=0; i < gx+gy; i++) {
-
           if (mouseX > x && mouseX < x && mouseY > y && mouseY < y && menu.pause == false && mainI.inv == false) {
-            inGrid[i] = false;
+            inGrid[i] = true;
             image(block.block, width/2, height/2);
             println("Hallo");
           } else {
-            inGrid[i] = true;
+            inGrid[i] = false;
           }
         }
       }
