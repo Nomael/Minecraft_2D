@@ -99,9 +99,11 @@ class Player {
       }
     }
   }
-  
-  void crosshairs(){
-    cursor(CROSS);
+
+  void crosshairs() {
+    if(menu.pause == false){
+      cursor(CROSS);
+    }
   }
 
   void grid() { // Player Grid
