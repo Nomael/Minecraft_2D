@@ -19,14 +19,11 @@ class Player {
   PImage lcplayer;
   PImage rplayer;
   PImage lplayer;
-
-  int gx[] = new int[7];
-  int gy[] = new int[6];
-  int gxy = gx.length;
-  boolean inGrid[] = new boolean[gxy];
+  
+  int gx = 25;
+  int gy = 15;
+  boolean inGrid[] = new boolean[gx+gy];
   int ggr = 80;
-  int iggr = 80;
-  int gcen = 20;
 
   Player(int x, int y, float psprint, float pwalk, float pjump) {
     this.px = x;
@@ -106,24 +103,11 @@ class Player {
     }
   }
 
-  void grid() { // Player Grid
-    for (int x= 0; x < 7; x++) {
-      for (int y= 0; y < 6; y++) {
-        for (int i=0; i < gxy; i++) {
-          //if (inGrid[i] == false) {
-          gx[x] = (px-ggr*3-20);
-          gy[y] = (py-ggr*2);
-          noFill();
-          rect(gx[x]+(ggr*x), gy[y]+(ggr*y), ggr, ggr);
-        }
-      }
-    }
-  }
-  void grid2() { // World Grid
+  void grid() { // World Grid
     for (float x= 0; x < 25; x++) {
       for (float y= 0; y < 15; y++) {
         noFill();
-        rect(iggr*x-gcen, 20+(iggr*y), iggr, iggr);
+        rect(ggr*x-20, 20+(ggr*y), ggr, ggr);
       }
     }
   }
@@ -131,9 +115,9 @@ class Player {
   void blocksel() {
     for (int x= 0; x < 2; x++) {
       for (int y= 0; y < 2; y++) {
-        for (int i=0; i < gxy; i++) {
+        for (int i=0; i < gx+gy; i++) {
 
-          if (mouseX > gx[x] && mouseX < gx[x]+(ggr*x) && mouseY > gy[y] && mouseY < gy[y]+(ggr*y) && menu.pause == false && mainI.inv == false) {
+          if (mouseX > x && mouseX < x && mouseY > y && mouseY < y && menu.pause == false && mainI.inv == false) {
             inGrid[i] = false;
             image(block.block, width/2, height/2);
             println("Hallo");

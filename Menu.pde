@@ -29,10 +29,6 @@ class Menu {
     
   }
 
-  void changeAppTitle(String title) {
-    surface.setTitle(title);
-  }
-
   void mainnav() {
     if (menunav == 1) {
       cursor(ARROW);
