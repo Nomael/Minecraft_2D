@@ -8,7 +8,7 @@ class Player {
   float jump;
   float down1 = 3;
   int pricht = 2;
-  int gamemode = 0;
+  int gamemode = 1;
   boolean up;
   boolean down;
   boolean left;
@@ -22,8 +22,6 @@ class Player {
 
   int gx[] = new int[7];
   int gy[] = new int[6];
-  int gx2[] = new int[7];
-  int gy2[] = new int[6];
   int gxy = gx.length;
   boolean inGrid[] = new boolean[gxy];
   int ggr = 80;
@@ -61,6 +59,7 @@ class Player {
     movement();
     mainI.hotbar();
     gravitation();
+    crosshairs();
   }
 
   void movement() {
@@ -100,21 +99,20 @@ class Player {
       }
     }
   }
+  
+  void crosshairs(){
+    cursor(CROSS);
+  }
 
   void grid() { // Player Grid
     for (int x= 0; x < 7; x++) {
       for (int y= 0; y < 6; y++) {
         for (int i=0; i < gxy; i++) {
-          if (inGrid[i] == false) {
-            gx[x] = (px-ggr*3-20);
-            gy[y] = (py-ggr*2);
-            gx2[x] = (px-ggr*3-20)+(ggr*x);
-            gy2[y] = (py-ggr*2)+(ggr*y);
-            noFill();
-            if (inGrid[i] == false) {
-              rect(gx[x]+(ggr*x), gy[y]+(ggr*y), ggr, ggr);
-            }
-          }
+          //if (inGrid[i] == false) {
+          gx[x] = (px-ggr*3-20);
+          gy[y] = (py-ggr*2);
+          noFill();
+          rect(gx[x]+(ggr*x), gy[y]+(ggr*y), ggr, ggr);
         }
       }
     }
@@ -129,11 +127,11 @@ class Player {
   }
 
   void blocksel() {
-    for (int x= 0; x < 7; x++) {
-      for (int y= 0; y < 6; y++) {
+    for (int x= 0; x < 2; x++) {
+      for (int y= 0; y < 2; y++) {
         for (int i=0; i < gxy; i++) {
 
-          if (mouseX > gx[x] && mouseX < gx2[x] && mouseY > gy[y] && mouseY < gy2[y] && menu.pause == false && mainI.inv == false) {
+          if (mouseX > gx[x] && mouseX < gx[x]+(ggr*x) && mouseY > gy[y] && mouseY < gy[y]+(ggr*y) && menu.pause == false && mainI.inv == false) {
             inGrid[i] = false;
             image(block.block, width/2, height/2);
             println("Hallo");

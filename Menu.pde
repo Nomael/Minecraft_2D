@@ -26,6 +26,7 @@ class Menu {
     quit = loadImage("/data/images/quit.png");
     play_over = loadImage("/data/images/play_over.png");
     quit_over = loadImage("/data/images/quit_over.png");
+    
   }
 
   void changeAppTitle(String title) {
@@ -34,9 +35,11 @@ class Menu {
 
   void mainnav() {
     if (menunav == 1) {
+      cursor(ARROW);
       imageMode(CENTER);
       if (mouseX > width/2 - 300 && mouseX < width/2 + 300 && mouseY < height/2 - 130 && mouseY > height/2 - 190) {
         image(play_over, width/2, height/2-160);
+        cursor(HAND);
         if (mousePressed) {
           menunav = 2;
           player.reset();
@@ -45,10 +48,11 @@ class Menu {
         image(play, width/2, height/2-160);
       }
       if (mouseX > width/2 - 150 && mouseX < width/2 + 150 && mouseY < height/2 + 190 && mouseY > height/2 + 130) {
+        cursor(HAND);
+        image(quit_over, width/2, height/2+160);
         if (mousePressed) {
           exit();
         }
-        image(quit_over, width/2, height/2+160);
       } else {
         image(quit, width/2, height/2+160);
       }
@@ -65,9 +69,11 @@ class Menu {
       keyCode = 0;
     }
     if (pause) {
+      cursor(ARROW);
       imageMode(CENTER);
       if (mouseX > width/2 - 300 && mouseX < width/2 + 300 && mouseY < height/2 - 30 && mouseY > height/2 - 90) {
         image(resume_over, width/2, height/2-60);
+        cursor(HAND);
         if (mousePressed) {
           pause = false;
         }
@@ -75,11 +81,12 @@ class Menu {
         image(resume, width/2, height/2-60);
       }
       if (mouseX > width/2 - 300 && mouseX < width/2 + 300 && mouseY < height/2 + 90 && mouseY > height/2 + 30) {
+        image(leave_over, width/2, height/2+60);
+        cursor(HAND);
         if (mousePressed) {
           menunav = 1;
           //exit();
         }
-        image(leave_over, width/2, height/2+60);
       } else {
         image(leave, width/2, height/2+60);
       }
