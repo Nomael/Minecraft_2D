@@ -32,7 +32,6 @@ void draw() {
     image(gamebg, 0, 0);
     wgen.bgen();
     player.grid();
-    player.grid2();
     player.blocksel();
     player.display();
     fps();
