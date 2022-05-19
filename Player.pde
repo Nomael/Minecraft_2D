@@ -69,7 +69,7 @@ class Player {
         pricht = 2;
         px += walk * sprint;
       }
-      if (down && overblock == false) {
+      if (down && overblock == false && up == false) {
         if (up == false) {
           py+= jump / 15;
         }
@@ -87,11 +87,11 @@ class Player {
         pricht = 2;
       }
 
-      if (up && overblock == true && gamemode == 0 && hold == false) {
+      if (up && overblock == true && gamemode == 0 && hold == false && down == false) {
         py-= jump;
         up = false;
         hold = true;
-      } else if (up && gamemode != 0) {
+      } else if (up && gamemode != 0  && down == false) {
         py-= jump / 15;
       }
     }
