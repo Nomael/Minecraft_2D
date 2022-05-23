@@ -117,15 +117,12 @@ class Player {
   }
 
   void blocksel() {
-    for (int x= 0; x < 2; x++) {
-      for (int y= 0; y < 2; y++) {
-        for (int i=0; i < gx+gy; i++) {
-          if (mouseX > x && mouseX < x && mouseY > y && mouseY < y && menu.pause == false && mainI.inv == false) {
-            inGrid[i] = true;
-            image(block.block, width/2, height/2);
-            println("Hallo");
-          } else {
-            inGrid[i] = false;
+    for (int i=0; i < block.blockw; i+= block.bsize) {
+      if (mouseButton == LEFT) {
+        if (mouseX > block.bx[i] && mouseX < block.bx[i]+block.bsize && mouseY > block.by && mouseY < block.by+block.bsize && menu.pause == false && mainI.inv == false) {
+          for (int z=0; z < block.blockw; z++) {
+            block.bsee[i] = false;
+            println(block.bsee);
           }
         }
       }

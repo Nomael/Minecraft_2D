@@ -1,8 +1,10 @@
 class Block {
   String bname;
   int bsize = 80;
+  int blockw = bsize * 25;
   PImage block;
-  int bx;
+  boolean bsee[] = new boolean[blockw];
+  int bx[] = new int[blockw];
   int by;
 
 
@@ -12,12 +14,15 @@ class Block {
     block.resize(bsize, bsize);
   }
 
-  void display(int x, int y) {
-    bx = x;
-    by = y;
-    image(block, x, y);
-    coll();
-  }
+  void display(int x, int y, int i) {
+      bx[i] = x+i;
+      by = y;
+      image(block, x+i, y);
+      coll();
+      for (int z=0; z < blockw; z++) {
+        bsee[z] = true;
+      }
+    }
 
   void coll() {
     if (player.py + player.psizey >= by) {

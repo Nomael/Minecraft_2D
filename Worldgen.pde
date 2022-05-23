@@ -2,13 +2,12 @@ class Worldgen {
   int anz;
   boolean blockover[] = new boolean[anz];
 
-  Worldgen(int anzahl) {
-    this.anz = anzahl;
+  Worldgen() {
   }
 
   void bgen() {
-    for (int i=0; i < width; i+= block.bsize) {
-      block.display(0+i, height - block.bsize);
+    for (int i=0; i < block.blockw; i+= block.bsize) {
+      block.display(0, height - block.bsize, i);
     }
   }
 }
