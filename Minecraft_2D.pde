@@ -10,7 +10,7 @@ String TITLE = "2D Minecraft from Noel and Marlon";
 
 
 void setup() {
-  size(1760, 900);
+  size(1760, 880);
   //frameRate(20);
   wgen = new Worldgen();
   block = new Block("grass");
@@ -33,8 +33,8 @@ void draw() {
   if (menu.menunav == 2) {
     image(gamebg, 0, 0);
     block.display(0, height - block.bsize);
-    player.grid();
     player.display();
+    wgen.grid();
     fps();
     menu.pause();
   }

@@ -20,11 +20,6 @@ class Player {
   PImage rplayer;
   PImage lplayer;
 
-  int gx = 25;
-  int gy = 15;
-  boolean inGrid[] = new boolean[gx+gy];
-  int ggr = 80;
-
   Player(int x, int y, float psprint, float pwalk, float pjump) {
     this.px = x;
     this.py = y;
@@ -100,19 +95,6 @@ class Player {
   void crosshairs() {
     if (menu.pause == false) {
       cursor(CROSS);
-    }
-  }
-
-  void grid() { // World Grid
-    for (float x= 0; x < 25; x++) {
-      for (float y= 0; y < 15; y++) {
-        for (int i=0; i < gx; i++) {
-          if (inGrid[i] == true) {
-            noFill();
-            rect(ggr*x, 20+(ggr*y), ggr, ggr);
-          }
-        }
-      }
     }
   }
 
