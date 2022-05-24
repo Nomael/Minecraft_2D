@@ -19,7 +19,7 @@ void setup() {
   player = new Player(160, height-240, 1, 2, 80); //x-Koordinate, y-Koordinate, Sprintgeschwindigtkeit, Gehen, Sprung
   mainI = new Inventory(3); //Größe - Hotbar,
   gamebg = loadImage("/data/images/background.png");
-  gamebg.resize(width, height-50);
+  gamebg.resize(width, height);
   mainbg = loadImage("/data/images/mainmenubg.png");
   mainbg.resize(width, height);
 }
@@ -32,7 +32,7 @@ void draw() {
 
   if (menu.menunav == 2) {
     image(gamebg, 0, 0);
-    wgen.bgen();
+    block.display(0, height - block.bsize);
     player.grid();
     player.display();
     fps();

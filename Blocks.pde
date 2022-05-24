@@ -1,10 +1,11 @@
 class Block {
   String bname;
   int bsize = 80;
-  int blockw = bsize * 25;
+  int banz = 25;
+  //int blockw = bsize * banz;
   PImage block;
-  boolean bsee[] = new boolean[blockw];
-  int bx[] = new int[blockw];
+  boolean bsee[] = new boolean[banz];
+  int bx[] = new int[banz];
   int by;
 
 
@@ -12,17 +13,22 @@ class Block {
     this.bname = bnames;
     block = loadImage("/data/images/" + bname + ".png");
     block.resize(bsize, bsize);
+
+    for (int i=0; i < banz; i++) {
+      bsee[i] = true;
+    }
   }
 
-  void display(int x, int y, int i) {
-      bx[i] = x+i;
-      by = y;
-      image(block, x+i, y);
-      coll();
-      for (int z=0; z < blockw; z++) {
-        bsee[z] = true;
+  void display(int x, int y) {
+    for (int i=0; i < banz; i++) {
+      if (bsee[i] == true) {
+        bx[i] = x+(i*bsize);
+        by = y;
+        image(block, x+(i*bsize), y);
+          coll();
       }
     }
+  }
 
   void coll() {
     if (player.py + player.psizey >= by) {
