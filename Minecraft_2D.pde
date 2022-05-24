@@ -33,8 +33,8 @@ void draw() {
   if (menu.menunav == 2) {
     image(gamebg, 0, 0);
     block.display(0, height - block.bsize);
-    player.display();
     wgen.grid();
+    player.display();
     fps();
     menu.pause();
   }
