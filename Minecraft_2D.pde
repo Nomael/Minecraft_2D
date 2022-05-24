@@ -10,7 +10,7 @@ String TITLE = "2D Minecraft from Noel and Marlon";
 
 
 void setup() {
-  size(1800, 900);
+  size(1760, 900);
   //frameRate(20);
   wgen = new Worldgen();
   block = new Block("grass");

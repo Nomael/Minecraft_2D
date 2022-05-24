@@ -25,7 +25,7 @@ class Block {
         bx[i] = x+(i*bsize);
         by = y;
         image(block, x+(i*bsize), y);
-          coll();
+        coll();
       }
     }
   }

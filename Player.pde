@@ -8,7 +8,7 @@ class Player {
   float jump;
   float down1 = 3;
   int pricht = 2;
-  int gamemode = 1;
+  int gamemode = 0;
   boolean up;
   boolean down;
   boolean left;
@@ -118,10 +118,10 @@ class Player {
 
   void blocksel() {
     for (int i=0; i < block.banz; i++) {
-        if (mouseX > block.bx[i] && mouseX < block.bx[i]+block.bsize && mouseY > block.by && mouseY < block.by+block.bsize && menu.pause == false && mainI.inv == false) {
-          if (mouseButton == LEFT) {
-            block.bsee[i] = false;
-            println(block.bsee);
+      if (mouseX > block.bx[i] && mouseX < block.bx[i]+block.bsize && mouseY > block.by && mouseY < block.by+block.bsize && menu.pause == false && mainI.inv == false) {
+        if (mouseButton == LEFT) {
+          block.bsee[i] = false;
+          println(block.bsee);
         }
         //if (mouseButton == RIGHT) {
         //    block.bsee[i] = true;
@@ -135,6 +135,7 @@ class Player {
       py+= down1;
     }
   }
+
   void reset() {
     px = 160;
     py = height-240;
