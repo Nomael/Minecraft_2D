@@ -109,7 +109,7 @@ class Player {
         for (int i=0; i < gx; i++) {
           if (inGrid[i] == true) {
             noFill();
-            rect(ggr*x-20, 20+(ggr*y), ggr, ggr);
+            rect(ggr*x, 20+(ggr*y), ggr, ggr);
           }
         }
       }
