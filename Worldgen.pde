@@ -5,21 +5,19 @@ class Worldgen {
   int gy = 15;
   boolean inGrid[] = new boolean[gx+gy];
   int ggr = 80;
-  
+
   Worldgen() {
   }
 
   void bgen() {
   }
-  
+
   void grid() { // World Grid
-    for (float x= 0; x < 25; x++) {
-      for (float y= 0; y < 15; y++) {
-        for (int i=0; i < gx; i++) {
-          if (inGrid[i] == false) {
-            noFill();
-            rect(ggr*x, (ggr*y), ggr, ggr);
-          }
+    for (int x= 0; x < gx; x++) {
+      for (float y= 0; y < gy; y++) {
+        if (inGrid[x] == false) {
+          noFill();
+          rect(ggr*x, (ggr*y), ggr, ggr);
         }
       }
     }
