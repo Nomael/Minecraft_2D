@@ -19,6 +19,7 @@ class Player {
   PImage lcplayer;
   PImage rplayer;
   PImage lplayer;
+  PImage bsel;
 
   Player(int x, int y, float psprint, float pwalk, float pjump) {
     this.px = x;
@@ -36,6 +37,8 @@ class Player {
     lcplayer.resize((int)(psizex*2.1), (int)(psizey*1.08));
     rcplayer = loadImage("/data/images/steve_right_c.png");
     rcplayer.resize((int)(psizex*2.1), (int)(psizey*1.08));
+    bsel = loadImage("/data/images/selector.png");
+    bsel.resize(block.bsize, block.bsize);
   }
 
   void display() {
@@ -49,6 +52,7 @@ class Player {
       image(rcplayer, px-20, py);
     }
     movement();
+    bhover();
     mainI.hotbar();
     gravitation();
     crosshairs();
@@ -108,6 +112,17 @@ class Player {
         //if (mouseButton == RIGHT) {
         //    block.bsee[i] = true;
         //}
+      }
+    }
+  }
+
+  void bhover() {
+    for (int i=0; i < block.banz; i++) {
+      if (mouseX > block.bx[i] && mouseX < block.bx[i]+block.bsize && mouseY > block.by && mouseY < block.by+block.bsize && menu.pause == false && mainI.inv == false) {
+        tint(0, 0, 0, 110);
+        image(bsel, block.bx[i], block.by);
+      } else {
+        noTint();
       }
     }
   }
