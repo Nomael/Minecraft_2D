@@ -9,6 +9,8 @@ class Player {
   float down1 = 3;
   int pricht = 2;
   int gamemode = 0;
+  int ju = 100;
+  float faktor = 1.05;
   boolean up;
   boolean down;
   boolean left;
@@ -86,12 +88,16 @@ class Player {
         pricht = 2;
       }
 
-      if (up && overblock == true && gamemode == 0 && hold == false && down == false) {
-        py-= jump;
+      if (up && overblock == true && gamemode == 0 && hold == false && down == false && ju >= 20) {
         up = false;
         hold = true;
+        ju = 0;
       } else if (up && gamemode != 0  && down == false) {
         py-= jump / 15;
+      }
+      if (ju < 20) {
+        ju++;
+        py -= 4;
       }
     }
   }
@@ -128,8 +134,9 @@ class Player {
   }
 
   void gravitation() {
-    if (overblock == false && menu.pause == false && gamemode != 1) {
-      py+= down1;
+    if (overblock == false && menu.pause == false && gamemode != 1 && ju >= 20) {
+      py+= down1 * faktor;
+      faktor += 0.15;
     }
   }
 

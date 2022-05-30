@@ -34,6 +34,7 @@ class Block {
     if (player.py + player.psizey >= by) {
       player.py = by - player.psizey;
       player.overblock = true;
+      player.faktor = 1.05;
       player.hold = false;
     } else {
       player.overblock = false;
