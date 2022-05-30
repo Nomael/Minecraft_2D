@@ -128,6 +128,9 @@ class Player {
   }
 
   void gravitation() {
+    for (int i=0; i < 10; i++) {
+    }
+
     if (overblock == false && menu.pause == false && gamemode != 1) {
       py+= down1;
     }
