@@ -88,7 +88,7 @@ class Player {
         pricht = 2;
       }
 
-      if (up && overblock == true && gamemode == 0 && hold == false && down == false && ju >= 20) {
+      if (up && overblock == true && gamemode == 0 && hold == false && down == false && ju >= 27) {
         up = false;
         hold = true;
         ju = 0;
