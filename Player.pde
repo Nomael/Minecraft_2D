@@ -95,9 +95,10 @@ class Player {
       } else if (up && gamemode != 0  && down == false) {
         py-= jump / 15;
       }
-      if (ju < 20) {
+      if (ju < 27) {
         ju++;
-        py -= 4;
+        py -= 4 * faktor;
+        faktor -= 0.03;
       }
     }
   }
