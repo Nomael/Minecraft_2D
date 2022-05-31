@@ -135,7 +135,7 @@ class Player {
   }
 
   void gravitation() {
-    if (overblock == false && menu.pause == false && gamemode != 1 && ju >= 20) {
+    if (overblock == false && menu.pause == false && gamemode != 1 && ju >= 27) {
       py+= down1 * faktor;
       faktor += 0.15;
     }
