@@ -16,6 +16,7 @@ class Inventory {
   Inventory(int number) {
     count = new int[number];
     this.number = number;
+    
     hotbar = loadImage("/data/images/hotbar.png");
     hotbar.resize(400, 50);
     selHotbar = loadImage("/data/images/selhotbar.png");
@@ -26,7 +27,11 @@ class Inventory {
     invRing.resize(shbgr*9 + 36, shbgr + (number*48)+50);
   }
   void hotbar() {
-    if (menu.pause == false && inv == false) {
+    //if (menu.pause == false && inv == false) {
+    //  image(hotbar, hbx, hby);
+    //  image(selHotbar, shbx, hby);
+    //}
+    if (player.asee == true) {
       image(hotbar, hbx, hby);
       image(selHotbar, shbx, hby);
     }

@@ -4,32 +4,38 @@ Menu menu;
 Player player;
 Inventory mainI;
 Worldgen wgen;
+
 PImage gamebg;
 PImage mainbg;
-String TITLE = "2D Minecraft from Noel and Marlon";
+
+String TITLE = "2D Minecraft by Noel and Marlon";
 
 
 void setup() {
   size(1760, 880);
-  //frameRate(20);
-  wgen = new Worldgen();
-  block = new Block("grass");
+  //frameRate(99999999999999L);
+  wgen = new Worldgen(); // Worldgeneration WIP
+  block = new Block("grass"); // Name of the Ground Block
   block_item = new Items();
   menu = new Menu("Mcicon512x512");
   player = new Player(180, height-240, 1, 2, 80); //x-Koordinate, y-Koordinate, Sprintgeschwindigtkeit, Gehen, Sprung
   mainI = new Inventory(3); //Größe - Hotbar,
+
   gamebg = loadImage("/data/images/background.png");
   gamebg.resize(width, height);
+
   mainbg = loadImage("/data/images/mainmenubg.png");
   mainbg.resize(width, height);
 }
 
 void draw() {
+  /* Main Menu */
   if (menu.menunav == 1) {
     image(mainbg, 0, 0);
     menu.mainnav();
   }
 
+  /* In-Game */
   if (menu.menunav == 2) {
     image(gamebg, 0, 0);
     block.display(0, height - block.bsize);
@@ -59,19 +65,17 @@ void keyPressed() {
       key = 0;
     }
   }
+
   if (menu.menunav == 2) {
     if (keyCode == ESC) {
       key = 0;
       menu.ppressed = true;
       mainI.inv = false;
     }
+
+    /* Player Movement */
     if (keyCode == 65) {
       player.left = true;
-    }
-    if (keyCode == 69 && mainI.inv == false) {
-      mainI.inv = true;
-    } else if (keyCode == 69 && mainI.inv == true) {
-      mainI.inv = false;
     }
     if (keyCode == 68) {
       player.right = true;
@@ -85,6 +89,23 @@ void keyPressed() {
     if (keyCode == 16) {
       player.sprint = 2.5;
     }
+
+    /* Inventar ON/OFF */
+    if (keyCode == 69 && mainI.inv == false && player.asee == true) {
+      mainI.inv = true;
+    } else if (keyCode == 69 && mainI.inv == true) {
+      mainI.inv = false;
+    }
+
+    /* Hotbar ON/OFF */
+    if (keyCode == 112 && player.alsee == -1 && mainI.inv == false) {
+      player.asee = false;
+    }
+    if (keyCode == 112 && player.alsee == 1 && mainI.inv == false) {
+      player.asee = true;
+    }
+
+    /* Hotbar Keys */
     if (keyCode == 49) {
       mainI.shbx = mainI.hbx;
     } else if (keyCode == 50) {
@@ -113,6 +134,8 @@ void keyReleased() {
     if (keyCode == 65) {
       player.left = false;
     }
+
+    /* Player Movement */
     if (keyCode == 68) {
       player.right = false;
     }
@@ -125,6 +148,11 @@ void keyReleased() {
     }
     if (keyCode == 16) {
       player.sprint = player.walk;
+    }
+
+    /* Hotbar ON/OFF */
+    if (keyCode == 112) {
+      player.alsee *= -1;
     }
   }
 }

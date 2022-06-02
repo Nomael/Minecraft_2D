@@ -1,6 +1,7 @@
 class Menu {
   PFont DFMC;
   PFont SPMC;
+
   PImage leave;
   PImage leave_over;
   PImage resume;
@@ -9,6 +10,7 @@ class Menu {
   PImage play_over;
   PImage quit;
   PImage quit_over;
+
   int menunav = 2;
   boolean pause = false;
   boolean ppressed = false;
@@ -16,8 +18,9 @@ class Menu {
   Menu(String iconname) {
     surface.setTitle(TITLE);
     surface.setIcon(loadImage("/data/images/" + iconname + ".png"));
+    
     DFMC = createFont("/data/fonts/Default_Old_MC.ttf", 10);
-    //SPMC = loadFont("/data/fonts/Special_MC.ttf");
+    //SPMC = createFont("/data/fonts/Special_MC.ttf", 10);
     leave = loadImage("/data/images/leave.png");
     resume = loadImage("/data/images/resume.png");
     leave_over = loadImage("/data/images/leave_over.png");
@@ -80,7 +83,6 @@ class Menu {
         cursor(HAND);
         if (mousePressed) {
           menunav = 1;
-          //exit();
         }
       } else {
         image(leave, width/2, height/2+60);

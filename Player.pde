@@ -11,6 +11,8 @@ class Player {
   int gamemode = 0;
   int ju = 100;
   float faktor = 1.05;
+  boolean asee = true;
+  int alsee = -1;
   boolean up;
   boolean down;
   boolean left;
@@ -56,8 +58,8 @@ class Player {
     movement();
     bhover();
     mainI.hotbar();
-    gravitation();
     crosshairs();
+    gravitation();
   }
 
   void movement() {
@@ -107,6 +109,11 @@ class Player {
     if (menu.pause == false) {
       cursor(CROSS);
     }
+    if (asee == true) {
+      cursor(CROSS);
+    } else {
+      noCursor();
+    }
   }
 
   void blocksel() {
@@ -151,5 +158,7 @@ class Player {
     hold = false;
     right = false;
     left = false;
+    asee = true;
+    alsee = -1;
   }
 }
