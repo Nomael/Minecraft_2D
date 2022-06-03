@@ -109,11 +109,6 @@ class Player {
     if (menu.pause == false) {
       cursor(CROSS);
     }
-    if (asee == true) {
-      cursor(CROSS);
-    } else {
-      noCursor();
-    }
   }
 
   void blocksel() {
@@ -160,5 +155,9 @@ class Player {
     left = false;
     asee = true;
     alsee = -1;
+    for(int i=0; i < block.banz; i++){
+       block.bsee[i] = true;
+    }
+    
   }
 }

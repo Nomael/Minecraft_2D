@@ -43,6 +43,7 @@ void draw() {
     player.display();
     fps();
     menu.pause();
+    println(player.asee + " | " + player.alsee);
   }
 }
 
@@ -98,10 +99,10 @@ void keyPressed() {
     }
 
     /* Hotbar ON/OFF */
-    if (keyCode == 112 && player.alsee == -1 && mainI.inv == false) {
+    if (keyCode == TAB && player.alsee == -1 && mainI.inv == false) {
       player.asee = false;
     }
-    if (keyCode == 112 && player.alsee == 1 && mainI.inv == false) {
+    if (keyCode == TAB && player.alsee == 1 && mainI.inv == false) {
       player.asee = true;
     }
 
@@ -151,7 +152,7 @@ void keyReleased() {
     }
 
     /* Hotbar ON/OFF */
-    if (keyCode == 112) {
+    if (keyCode == TAB) {
       player.alsee *= -1;
     }
   }
