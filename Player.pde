@@ -56,7 +56,9 @@ class Player {
       image(rcplayer, px-20, py);
     }
     movement();
-    bhover();
+    if (asee == true) {
+      bhover();
+    }
     mainI.hotbar();
     crosshairs();
     gravitation();
@@ -155,9 +157,8 @@ class Player {
     left = false;
     asee = true;
     alsee = -1;
-    for(int i=0; i < block.banz; i++){
-       block.bsee[i] = true;
+    for (int i=0; i < block.banz; i++) {
+      block.bsee[i] = true;
     }
-    
   }
 }
