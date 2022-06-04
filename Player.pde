@@ -116,7 +116,7 @@ class Player {
   void blocksel() {
     for (int i=0; i < block.banz; i++) {
       if (mouseX > block.bx[i] && mouseX < block.bx[i]+block.bsize && mouseY > block.by && mouseY < block.by+block.bsize && menu.pause == false && mainI.inv == false) {
-        if (mouseButton == LEFT) {
+        if (mouseButton == LEFT /*&& overblock == false*/) {
           block.bsee[i] = false;
           println(block.bsee);
         }

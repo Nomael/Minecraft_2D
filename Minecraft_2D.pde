@@ -1,4 +1,5 @@
-Block block; //<>//
+BlockID BID; //<>//
+Block block;
 Items block_item;
 Menu menu;
 Player player;
@@ -14,8 +15,9 @@ String TITLE = "2D Minecraft by Noel and Marlon";
 void setup() {
   size(1760, 880);
   //frameRate(99999999999999L);
+  //BID = new BlockID();
   wgen = new Worldgen(); // Worldgeneration WIP
-  block = new Block("grass"); // Name of the Ground Block
+  block = new Block(BID.blockname[2]); // Name of the Ground Block
   block_item = new Items();
   menu = new Menu("Mcicon512x512");
   player = new Player(180, height-240, 1, 2, 80); //x-Koordinate, y-Koordinate, Sprintgeschwindigtkeit, Gehen, Sprung
@@ -43,7 +45,7 @@ void draw() {
     player.display();
     fps();
     menu.pause();
-    println(player.asee + " | " + player.alsee);
+    //println(player.asee + " | " + player.alsee);
   }
 }
 
