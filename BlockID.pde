@@ -1,12 +1,14 @@
-class BlockID{
-  int blockID[] = {11, 2, 1, 17, 0};
-  String blockname[] = {"Dirt", "Grass", "Stone", "Wood", "Air"};
+class BlockID {
+  int blockID[] = {0, 1, 2, 11, 17};
+  String blockIDZ[] = new String[blockID.length];
+  String blockname[] = {"air", "stone", "grass", "dirt", "wood"};
   String BIDName[] = new String[blockname.length];
-  
-  BlockID(){
-    for(int i=0; i < blockID.length; i++){
-       BIDName[i] = blockname[i] + " : " + blockID[i];
-       println(BIDName[i]);
+
+  BlockID() {
+    for (int i=0; i < blockID.length; i++) {
+      blockIDZ[i] = nf(blockID[i], 4);
+      BIDName[i] = blockname[i] + " (#" + blockIDZ[i] + ")";
+      println("minecraft:" + BIDName[i]);
     }
   }
 }
