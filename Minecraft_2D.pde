@@ -15,7 +15,7 @@ String TITLE = "2D Minecraft by Noel and Marlon";
 void setup() {
   size(1760, 880);
   //frameRate(99999999999999L);
-  //BID = new BlockID();
+  BID = new BlockID();
   wgen = new Worldgen(); // Worldgeneration WIP
   block = new Block(BID.blockname[2]); // Name of the Ground Block
   block_item = new Items();
