@@ -7,8 +7,8 @@ class BlockID {
   BlockID() {
     for (int i=0; i < blockID.length; i++) {
       blockIDZ[i] = nf(blockID[i], 4);
-      BIDName[i] = blockname[i] + " (#" + blockIDZ[i] + ")";
-      println("minecraft:" + BIDName[i]);
+      BIDName[i] = "minecraft:" + blockname[i] + " (#" + blockIDZ[i] + ")";
+      println(BIDName[i]);
     }
   }
 }
