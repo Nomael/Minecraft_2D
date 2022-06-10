@@ -118,7 +118,7 @@ class Player {
       if (mouseX > block.bx[i] && mouseX < block.bx[i]+block.bsize && mouseY > block.by && mouseY < block.by+block.bsize && menu.pause == false && mainI.inv == false) {
         if (mouseButton == LEFT /*&& overblock == false*/) {
           block.bsee[i] = false;
-          println(block.bsee);
+          //println(block.bsee);
         }
         //if (mouseButton == RIGHT) {
         //    block.bsee[i] = true;
