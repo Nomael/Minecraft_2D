@@ -11,14 +11,14 @@ class Menu {
   PImage quit;
   PImage quit_over;
 
-  int menunav = 2;
+  int menunavi = 1;
   boolean pause = false;
   boolean ppressed = false;
 
   Menu(String iconname) {
     surface.setTitle(TITLE);
     surface.setIcon(loadImage("/data/images/" + iconname + ".png"));
-    
+
     DFMC = createFont("/data/fonts/Default_Old_MC.ttf", 10);
     //SPMC = createFont("/data/fonts/Special_MC.ttf", 10);
     leave = loadImage("/data/images/leave.png");
@@ -32,14 +32,15 @@ class Menu {
   }
 
   void mainnav() {
-    if (menunav == 1) {
+    if (menunavi == 1) {
       cursor(ARROW);
       imageMode(CENTER);
+      mainmenutx();
       if (mouseX > width/2 - 300 && mouseX < width/2 + 300 && mouseY < height/2 - 130 && mouseY > height/2 - 190) {
         image(play_over, width/2, height/2-160);
         cursor(HAND);
         if (mousePressed) {
-          menunav = 2;
+          menunavi = 2;
           player.reset();
         }
       } else {
@@ -82,12 +83,27 @@ class Menu {
         image(leave_over, width/2, height/2+60);
         cursor(HAND);
         if (mousePressed) {
-          menunav = 1;
+          menunavi = 1;
         }
       } else {
         image(leave, width/2, height/2+60);
       }
       imageMode(CORNER);
     }
+  }
+
+  void mainmenutx() {
+    textAlign(CENTER);
+    textFont(DFMC);
+    textSize(80);
+    fill(255);
+    text("2D Minecraft", width/2, 120);
+    
+    textSize(20);
+    fill(50, 200, 50);
+    float c = cos(45.15);
+    rotate(-c);
+    text("By Noel and Marlon", 1040, 550);
+    rotate(c);
   }
 }

@@ -17,7 +17,7 @@ void setup() {
   //frameRate(99999999999999L);
   BID = new BlockID();
   wgen = new Worldgen(); // Worldgeneration WIP
-  block = new Block(BID.blockname[2]); // Name of the Ground Block
+  block = new Block(BID.blockname[2]); // Name of the Ground Block Array 2 = Grass
   block_item = new Items();
   menu = new Menu("Mcicon512x512");
   player = new Player(180, height-240, 1, 2, 80); //x-Koordinate, y-Koordinate, Sprintgeschwindigtkeit, Gehen, Sprung
@@ -32,13 +32,13 @@ void setup() {
 
 void draw() {
   /* Main Menu */
-  if (menu.menunav == 1) {
+  if (menu.menunavi == 1) {
     image(mainbg, 0, 0);
     menu.mainnav();
   }
 
   /* In-Game */
-  if (menu.menunav == 2) {
+  if (menu.menunavi == 2) {
     image(gamebg, 0, 0);
     block.display(0, height - block.bsize);
     wgen.grid();
@@ -63,13 +63,13 @@ void mousePressed() {
 
 
 void keyPressed() {
-  if (menu.menunav == 1) {
+  if (menu.menunavi == 1) {
     if (keyCode == ESC) {
       key = 0;
     }
   }
 
-  if (menu.menunav == 2) {
+  if (menu.menunavi == 2) {
     if (keyCode == ESC) {
       key = 0;
       menu.ppressed = true;
@@ -132,7 +132,7 @@ void keyPressed() {
 }
 
 void keyReleased() {
-  if (menu.menunav == 2) {
+  if (menu.menunavi == 2) {
     menu.ppressed = false;
     if (keyCode == 65) {
       player.left = false;
