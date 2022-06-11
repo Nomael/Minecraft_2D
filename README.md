@@ -1,1 +1,3 @@
-# 2D_Minecraft
+# 2D Minecraft
+
+# "D Minecraft as an Project for School
